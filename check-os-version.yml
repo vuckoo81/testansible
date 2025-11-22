@@ -1,8 +1,12 @@
 ---
-- name: Check OS Version
-  hosts: all
-  gather_facts: no
+- hosts: all
+  gather_facts: True
   tasks:
-    - name: Cat OS release
-      cat:
-        /etc/os-release
+    - name: Display OS distribution and version
+      debug:
+        msg: "Distribution: {{ ansible_distribution }}, Version: {{ ansible_distribution_version }}"
+
+    - name: Display full OS release information (if available in facts)
+      debug:
+        msg: "Full OS Release: {{ ansible_distribution_file_parsed }}"
+      when: ansible_distribution_file_parsed is defined
