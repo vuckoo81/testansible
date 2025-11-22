@@ -6,4 +6,3 @@
     - name: Cat OS release
       cat:
         /etc/os-release
-	
