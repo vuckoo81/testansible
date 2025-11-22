@@ -1,0 +1,9 @@
+---
+- name: Check OS Version
+  hosts: all
+  gather_facts: no
+  tasks:
+	- name: Cat OS release
+	  cat:
+		/etc/os-release
+	
